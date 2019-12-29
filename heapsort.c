@@ -11,7 +11,7 @@ typedef struct {
 } intHeap_T;
 
 
-/*heapify*/
+/*heapify: max heap if lt() is used and min heap if gt() is used*/
 int store (intHeap_T* heap, int value){
         /*initializing variables*/
         int cnt=0;
@@ -88,7 +88,7 @@ int retrieve(intHeap_T* heap,int *rvalue) {
         heap->end=(heap->end)-1;
         /*bubble down*/
         while (((heap->compare(heap->store[idx],heap->store[right_idx])==1) || (heap->compare(heap->store[idx],heap->store[left_idx])==1)) && ((right_idx<=(heap->end)) && (left_idx<=(heap->end)))){
-                /*comparing (depending on using lt or gt function) to either swap parent node with left or right child node*/
+                /*comparing (depending on using lt() or gt() function) to either swap parent node with left or right child node*/
                 /*swapping with left child*/
                 if (heap->compare(heap->store[left_idx],heap->store[right_idx])==1){
                         /*swapping values*/
